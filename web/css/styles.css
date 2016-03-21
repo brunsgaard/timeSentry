@@ -49,20 +49,6 @@ md-sidenav {
     border-bottom-color: #ccc;
 }
 
-.date-err-message {
-    font-size: 12px;
-    color: rgb(221, 44, 0);
-    padding-left: 65px;
-}
-
-.country-option {
-    text-transform: capitalize;
-}
-
-.currency-option {
-    text-transform: uppercase;
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
