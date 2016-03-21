@@ -1,0 +1,16 @@
+{
+  "name": "timeSentry",
+  "description": "TimeTracking software",
+  "version": "0.0.1",
+  "homepage": "https://github.com/brunsgaard/timesentry",
+  "license": "Proprietary",
+  "private": true,
+  "dependencies": {
+    "angular-material": "1.1.0-rc1",
+    "angular-route": "~1.4.8",
+    "angular-messages": "~1.4.8"
+  },
+  "resolutions": {
+    "angular": "1.5.1"
+  }
+}

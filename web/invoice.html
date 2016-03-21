@@ -1,0 +1,48 @@
+<md-content layout-margin layout-padding class="md-whiteframe-2dp">
+
+    <div layout="row" layout-align="center center">
+        <div layout="row" div class="md-inline-form" flex>
+            <md-input-container flex>
+                <label>Client</label>
+                <md-select placeholder="Client" ng-model="selected_client">
+                    <md-option ng-value="client" ng-repeat="client in clients">{{client.name}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container flex>
+                <label>Month</label>
+                <md-select placeholder="Month" ng-model="selected_month">
+                    <md-option ng-value="$index + 1" ng-repeat="month in months">{{ month }}</md-option>
+                </md-select>
+            </md-input-container>
+
+        </div>
+        <div>
+            <md-button ng-click="load()" class="md-raised md-primary">Find Entries</md-button>
+        </div>
+    </div>
+
+
+
+</md-content>
+
+<md-content ng-show="invoice_data" layout-margin layout-padding class="md-whiteframe-2dp">
+
+    <div layout layout="row" layout-align="none center">
+        <h1 flex class="md-headline">Invoice</h1>
+    </div>
+    <md-list>
+
+        <md-list-item ng-repeat="project in invoice_data.projects">
+            <span>{{ project.name }}</span>
+            <span flex></span>
+            <span>{{ project.duration / 60 | number : 2}}</span>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item>
+            <span> SUM</span>
+            <span flex></span>
+            <span>{{ invoice_data.sum / 60 | number : 2}}</span>
+        </md-list-item>
+
+</md-content>

@@ -1,0 +1,49 @@
+<md-content layout-margin layout-padding class="md-whiteframe-2dp">
+    <div layout layout="row" layout-align="none center">
+        <h1 flex class="md-display-1">Clients & Projects</h1>
+        <md-button class="md-fab md-mini" ng-disabled="true" aria-label="FAB">
+            <md-icon>filter_list</md-icon>
+        </md-button>
+        <md-button class="md-fab md-mini" ng-disabled="true" aria-label="FAB">
+            <md-icon>search</md-icon>
+        </md-button>
+        <md-button class="md-fab md-mini" aria-label="FAB" ng-click="createClient($event)">
+            <md-icon>add</md-icon>
+        </md-button>
+    </div>
+
+    <md-list flex>
+        <div ng-repeat="client in clients">
+            <md-list-item md-no-ink layout-align="center start">
+                <img ng-src="img/avatar.jpeg" class="md-avatar" />
+                <h3 flex="20">{{ client.name }}</h3>
+
+                <div flex layout="column" layout-padding>
+                    <div ng-repeat="project in client.projects">
+                        <div layout="row">
+                            <div>
+                                <md-icon aria-label="Delete" ng-click="deleteResource(project)">delete</md-icon>
+                            </div>
+                            <div flex="33"> {{ project.name }} </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div flex="10" layout="row" layout-padding>
+                    <md-button class="md-icon-button" aria-label="Add Project" ng-click="createProject(client, $event)">
+                        <md-icon>add</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Delete Client" ng-click="deleteResource(client)">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </div>
+
+            </md-list-item>
+
+            <md-divider ng-show="!$last" style="margin-top: 10px; margin-bottom: 10px;"></md-divider>
+
+        </div>
+
+    </md-list>
+
+</md-content>

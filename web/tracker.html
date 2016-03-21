@@ -1,0 +1,59 @@
+<md-content layout-padding layout-margin class="md-whiteframe-2dp">
+    <div layout="row" layout-align="center center">
+        <div layout="row" div class="md-inline-form" flex>
+
+            <md-datepicker ng-model="selected_date"></md-datepicker>
+
+            <md-input-container>
+                <label>Client</label>
+                <md-select placeholder="Client" ng-model="selected_client">
+                    <md-option ng-value="client" ng-repeat="client in clients">{{client.name}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Project</label>
+                <md-select placeholder="Project" ng-model="selected_project">
+                    <md-option ng-value="project" ng-repeat="project in selected_client.projects">{{project.name}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Hours</label>
+                <input type="number" ng-model="duration" />
+            </md-input-container>
+
+            <md-input-container flex>
+                <label>Note</label>
+                <input ng-model="message" />
+            </md-input-container>
+        </div>
+
+        <div>
+            <md-button ng-click="save_entry()" class="md-raised md-primary">Add Entry</md-button>
+        </div>
+    </div>
+</md-content>
+
+<md-content layout-padding layout-margin class="md-whiteframe-2dp">
+    <div layout layout="row" layout-align="none center">
+        <h1 flex class="md-headline">Entries</h1>
+    </div>
+    <md-list>
+
+        <md-list-item ng-repeat="entry in entries">
+            <span flex="10">{{ entry.date }}</span>
+            <span flex="15">{{ entry.client }}</span>
+            <span flex="20">{{ entry.project }}</span>
+            <span>{{ entry.duration / 60 | number : 2}}</span>
+            <span flex="5"></span>
+            <span flex=>{{ entry.message }}</span>
+            <div>
+                <md-icon class="md-secondary" aria-label="Edit" ng-click="">edit</md-icon>
+                <md-icon class="md-secondary" aria-label="Delete" ng-click="">delete</md-icon>
+            </div>
+        </md-list-item>
+
+    </md-list>
+
+</md-content>

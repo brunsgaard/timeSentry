@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <title>TimeSentry</title>
+
+    <meta charset="utf-8" />
+    <meta name="description" content="clerk HQ" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="author" content="clerk devs" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- replace with cloak css and move js to buttom -->
+    <script src="./bower_components/angular/angular.min.js"></script>
+</head>
+
+<body ng-app="tsApp" layout="column" ng-cloak>
+
+    <md-toolbar class="md-whiteframe-2dp">
+        <div class="md-toolbar-tools" ng-controller="ToolbarCtrl">
+            <md-button hide-gt-md md-no-ink ng-click="toggle()">
+                <md-icon>menu</md-icon>
+            </md-button>
+            <span flex>TimeSentry</span>
+        </div>
+    </md-toolbar>
+
+    <div layout="column" flex>
+        <div layout="row" layout-fill>
+
+            <div layout-padding layout="row" id="sidenav">
+                <md-sidenav class="nav" md-is-locked-open="$mdMedia('gt-md')" md-component-id="left">
+                    <md-content layout="column">
+
+                        <md-button ng-href="/#/tracker">
+                            <div layout="row" layout-align="">
+                                <div>
+                                    <md-icon style="color: rgba(243, 33, 49, 0.59);">alarm_on</md-icon>
+                                </div>
+                                <div flex="10"></div>
+                                <div>Track Time</div>
+                            </div>
+                        </md-button>
+
+                        <md-button ng-href="/#/project">
+                            <div layout="row" layout-align="">
+                                <div>
+                                    <md-icon style="color: rgba(0, 204, 160, 0.87);">local_florist</md-icon>
+                                </div>
+                                <div flex="10"></div>
+                                <div>Projects</div>
+                            </div>
+                        </md-button>
+
+                        <md-button ng-href="/#/invoice">
+                            <div layout="row" layout-align="">
+                                <div>
+                                    <md-icon style="color: rgba(245, 164, 7, 0.97);">monetization_on</md-icon>
+                                </div>
+                                <div flex="10"></div>
+                                <div>Invoices</div>
+                            </div>
+                        </md-button>
+
+                    </md-content>
+                </md-sidenav>
+            </div>
+
+            <md-content id="content" ng-view flex> </md-content>
+
+        </div>
+    </div>
+
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="./bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="./bower_components/angular-material/angular-material.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers.js"></script>
+    <script src="./js/services.js"></script>
+</body>
+
+</html>
